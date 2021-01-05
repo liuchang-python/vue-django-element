@@ -64,6 +64,25 @@ export default {
     methods: {
         altered() {
             console.log(this.user)
+            if (this.user.username && this.user.password && this.user.age && this.user.address) {
+                this.$axios({
+                    url: 'http://127.0.0.1:8000/user/alter_user/',
+                    method: 'get',
+                    params: {
+                        user_id:this.$route.params.id,
+                        username: this.user.username,
+                        password: this.user.password,
+                        age: this.user.age,
+                        address: this.user.address,
+                    }
+                }).then(res=>{
+                    console.log('成功')
+                }).catch(error=>{
+                    console.log(error,'add')
+                })
+            } else {
+                console.log('error')
+            }
         }
     },
     created() {

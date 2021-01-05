@@ -70,6 +70,8 @@ export default {
                 }).catch(error=>{
                     console.log(error,'add')
                 })
+            } else {
+                console.log('error')
             }
         },
 

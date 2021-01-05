@@ -12,7 +12,7 @@
                 <el-table-column label="操作" width="380">
                     <template slot-scope="scope">
                         <el-row>
-                            <el-button type="success" size="small" icon="el-icon-plus"> 添加</el-button>
+                            <el-button type="success" size="small" icon="el-icon-plus" @click="$router.push('/add')"> 添加</el-button>
 
                             <el-popconfirm @confirm="del_user(scope.row.id)"
                                            confirm-button-text='确定'
