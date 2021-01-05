@@ -11,16 +11,16 @@
                 <div class="grid-content bg-purple">
                     <el-form ref="form" :model="user" label-width="80px">
                         <el-form-item label="姓名">
-                            <el-input v-model="user.username"></el-input>
+                            <el-input v-model="user.username"><i slot="prefix" class="el-icon-user"></i></el-input>
                         </el-form-item>
                         <el-form-item label="密码">
-                            <el-input v-model="user.password"></el-input>
+                            <el-input v-model="user.password"><i slot="prefix" class="el-icon-lock"></i></el-input>
                         </el-form-item>
                         <el-form-item label="年龄">
-                            <el-input v-model="user.age"></el-input>
+                            <el-input v-model="user.age"><i slot="prefix" class="el-icon-sunny"></i></el-input>
                         </el-form-item>
                         <el-form-item label="地址">
-                            <el-input v-model="user.address"></el-input>
+                            <el-input v-model="user.address"><i slot="prefix" class="el-icon-map-location"></i></el-input>
                         </el-form-item>
                     </el-form>
 
