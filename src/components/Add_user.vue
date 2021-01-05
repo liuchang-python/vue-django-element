@@ -2,20 +2,36 @@
 
 
     <div>
-        <el-form ref="form" :model="user" label-width="80px">
-            <el-form-item label="姓名">
-                <el-input v-model="user.username"></el-input>
-            </el-form-item>
-            <el-form-item label="密码">
-                <el-input v-model="user.password"></el-input>
-            </el-form-item>
-            <el-form-item label="年龄">
-                <el-input v-model="user.age"></el-input>
-            </el-form-item>
-            <el-form-item label="地址">
-                <el-input v-model="user.address"></el-input>
-            </el-form-item>
-        </el-form>
+
+        <el-row :gutter="20">
+            <el-col :span="8">
+                <div class="grid-content bg-purple">&nbsp;</div>
+            </el-col>
+            <el-col :span="8">
+                <div class="grid-content bg-purple">
+                    <el-form ref="form" :model="user" label-width="80px">
+                        <el-form-item label="姓名">
+                            <el-input v-model="user.username"></el-input>
+                        </el-form-item>
+                        <el-form-item label="密码">
+                            <el-input v-model="user.password"></el-input>
+                        </el-form-item>
+                        <el-form-item label="年龄">
+                            <el-input v-model="user.age"></el-input>
+                        </el-form-item>
+                        <el-form-item label="地址">
+                            <el-input v-model="user.address"></el-input>
+                        </el-form-item>
+                    </el-form>
+
+                </div>
+            </el-col>
+            <el-col :span="8">
+                <div class="grid-content bg-purple">&nbsp;</div>
+            </el-col>
+
+        </el-row>
+
         <el-button type="primary" @click="added">添加</el-button>
 
 
