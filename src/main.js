@@ -9,7 +9,9 @@ import ElementUI, {Popconfirm} from 'element-ui'
 import "element-ui/lib/theme-chalk/index.css"
 
 import axios from "axios";
+// axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 Vue.prototype.$axios = axios;
+
 
 Vue.use(ElementUI)
 Vue.use(Popconfirm)

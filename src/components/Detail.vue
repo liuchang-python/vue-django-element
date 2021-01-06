@@ -30,14 +30,14 @@ export default {
     created() {
         let user_id = this.$route.params.id
         this.$axios({
-            url: 'http://127.0.0.1:8000/user/get_user/',
+            url: 'http://127.0.0.1:8000/user/the_users/'+user_id+'/',
             method: 'get',
             params: {
-                id: user_id,
+                // id: user_id,
             }
         }).then(res => {
-            console.log(res.data);
-            this.user = [res.data];
+            console.log(res.data.res);
+            this.user = [res.data.res];
         }).catch(error => {
             console.log(error, 'get')
         })

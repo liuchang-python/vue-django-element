@@ -76,11 +76,11 @@ export default {
     },
     created() {
         this.$axios({
-            url: 'http://127.0.0.1:8000/user/users/',
+            url: 'http://127.0.0.1:8000/user/the_users/',
             method: 'get',
         }).then(res => {
-            console.log(res.data);
-            this.user_list = res.data;
+            console.log(res.data.res);
+            this.user_list = res.data.res;
         }).catch(error => {
             console.log(error, '11');
         })

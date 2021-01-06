@@ -54,17 +54,25 @@ export default {
         }
     },
     methods: {
+
         added() {
             if (this.user.username && this.user.password && this.user.age && this.user.address) {
+                let params = new URLSearchParams();
+                params.append('username', this.user.username);
+                params.append('password', this.user.password);
+                params.append('age', this.user.age);
+                params.append('address', this.user.address);
                 this.$axios({
-                    url: 'http://127.0.0.1:8000/user/add_user/',
-                    method: 'get',
-                    params: {
-                        username: this.user.username,
-                        password: this.user.password,
-                        age: this.user.age,
-                        address: this.user.address,
-                    }
+                    url: 'http://127.0.0.1:8000/user/the_users/',
+                    method: 'post',
+                    data: params,
+                    // JSON.stringify({
+                    //     username: this.user.username,
+                    //     password: this.user.password,
+                    //     age: this.user.age,
+                    //     // age:1,
+                    //     address: this.user.address,
+                    // })
                 }).then(res=>{
                     console.log('成功')
                 }).catch(error=>{
