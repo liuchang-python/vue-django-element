@@ -5,10 +5,12 @@
         <el-container>
             <el-table :data="user_list" border style="width: 100%">
                 <el-table-column prop="id" label="ID" width="80"></el-table-column>
-                <el-table-column prop="username" label="姓名" width="120"></el-table-column>
+                <el-table-column prop="name" label="姓名" width="120"></el-table-column>
                 <el-table-column prop="password" label="密码" width="100"></el-table-column>
-                <el-table-column prop="birth" label="生日" width="100"></el-table-column>
-                <el-table-column prop="address" label="地址"></el-table-column>
+                <el-table-column prop="gender" label="性别" width="100"></el-table-column>
+                <el-table-column prop="phone" label="电话"></el-table-column>
+
+
                 <el-table-column label="操作" width="380">
                     <template slot-scope="scope">
                         <el-row>
@@ -49,6 +51,7 @@ export default {
     data() {
         return {
             user_list: [],
+            pic:'',
         }
     },
     methods: {
@@ -76,11 +79,12 @@ export default {
     },
     created() {
         this.$axios({
-            url: 'http://127.0.0.1:8000/user/the_users/',
+            // url: 'http://127.0.0.1:8000/user/the_users/',
+            url: 'http://127.0.0.1:8000/app/stu/',
             method: 'get',
         }).then(res => {
-            console.log(res.data.res);
-            this.user_list = res.data.res;
+            console.log(res.data.result);
+            this.user_list = res.data.result;
         }).catch(error => {
             console.log(error, '11');
         })
