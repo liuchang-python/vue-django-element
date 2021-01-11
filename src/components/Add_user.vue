@@ -69,7 +69,8 @@ export default {
                 params.append('phone', this.user.phone);
                 this.$axios({
                     // url: 'http://127.0.0.1:8000/user/the_users/',
-                    url: 'http://127.0.0.1:8000/app/stu/',
+                    // url: 'http://127.0.0.1:8000/app/stu/',
+                    url: 'http://127.0.0.1:8000/user/users/',
                     method: 'post',
                     data: params,
                     // JSON.stringify({

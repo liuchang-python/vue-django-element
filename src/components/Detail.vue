@@ -35,15 +35,16 @@ export default {
         let user_id = this.$route.params.id
         this.$axios({
             // url: 'http://127.0.0.1:8000/user/the_users/'+user_id+'/',
-            url: 'http://127.0.0.1:8000/app/stu/'+user_id+'/',
+            // url: 'http://127.0.0.1:8000/app/stu/'+user_id+'/',
+            url: 'http://127.0.0.1:8000/user/users/'+user_id+'/',
             method: 'get',
             params: {
                 // id: user_id,
             }
         }).then(res => {
-            console.log(res.data.result);
-            this.user = res.data.result;
-            this.pic = this.user[0].pic;
+            console.log(res.data);
+            this.user = [res.data];
+            this.pic = this.user[0].stu_pic;
 
         }).catch(error => {
             console.log(error, 'get')

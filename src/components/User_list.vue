@@ -63,10 +63,13 @@ export default {
         },
         del_user(id) {
             this.$axios({
-                url: 'http://127.0.0.1:8000/user/del_user/',
-                method: 'get',
+                // url: 'http://127.0.0.1:8000/user/del_user/',
+                // url: 'http://127.0.0.1:8000/app/stu/'+id+'/',
+                url: 'http://127.0.0.1:8000/user/users/'+id+'/',
+                // method: 'get',
+                method: 'delete',
                 params: {
-                    id: id,
+                    // id: id,
                 },
             }).then(res => {
                 console.log(res);
@@ -80,11 +83,12 @@ export default {
     created() {
         this.$axios({
             // url: 'http://127.0.0.1:8000/user/the_users/',
-            url: 'http://127.0.0.1:8000/app/stu/',
+            // url: 'http://127.0.0.1:8000/app/stu/',
+            url: 'http://127.0.0.1:8000/user/users/',
             method: 'get',
         }).then(res => {
-            console.log(res.data.result);
-            this.user_list = res.data.result;
+            console.log(res.data);
+            this.user_list = res.data;
         }).catch(error => {
             console.log(error, '11');
         })

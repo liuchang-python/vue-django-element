@@ -64,17 +64,19 @@ export default {
     methods: {
         altered() {
             console.log(this.user)
-            if (this.user.username && this.user.password && this.user.age && this.user.address) {
+            // if (this.user.username && this.user.password && this.user.age && this.user.address) {
+            if (this.user.name && this.user.password && this.user.phone) {
+                let params = new URLSearchParams();
+                params.append('name', this.user.name);
+                params.append('password', this.user.password);
+                params.append('id', this.$route.params.id);
+                // params.append('address', this.user.address);
+                params.append('phone', this.user.phone);
                 this.$axios({
-                    url: 'http://127.0.0.1:8000/user/alter_user/',
-                    method: 'get',
-                    params: {
-                        user_id:this.$route.params.id,
-                        username: this.user.username,
-                        password: this.user.password,
-                        age: this.user.age,
-                        address: this.user.address,
-                    }
+                    // url: 'http://127.0.0.1:8000/user/alter_user/',
+                    url: 'http://127.0.0.1:8000/user/users/',
+                    method: 'patch',
+                    params: params,
                 }).then(res=>{
                     console.log('成功')
                 }).catch(error=>{
@@ -88,20 +90,23 @@ export default {
     created() {
         let user_id = this.$route.params.id;
         this.$axios({
-            url: 'http://127.0.0.1:8000/user/get_user/',
+            // url: 'http://127.0.0.1:8000/user/get_user/',
+            // url: 'http://127.0.0.1:8000/app/stu/'+user_id+'/',
+            url: 'http://127.0.0.1:8000/user/users/'+user_id+'/',
             method: 'get',
             params: {
-                id: user_id,
+                // id: user_id,
             }
         }).then(res => {
             console.log(1, res.data);
-            this.user = {
-                username: res.data.username,
-                age: res.data.age,
-                address: res.data.address,
-                password: res.data.password,
-                birth: res.data.birth,
-            };
+            this.user = res.data;
+            // this.user = {
+            //     username: res.data.username,
+            //     age: res.data.age,
+            //     address: res.data.address,
+            //     password: res.data.password,
+            //     birth: res.data.birth,
+            // };
             console.log(2, this.user)
         }).catch(error => {
             console.log(error, 'get')

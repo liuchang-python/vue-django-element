@@ -6,6 +6,7 @@
                 <span>管理系统</span>
                 <router-link to="/users">角色列表</router-link>
                 <router-link to="/add">添加角色</router-link>
+                <router-link to="/login">登录</router-link>
             </el-header>
             <el-container>
                 <el-main>
